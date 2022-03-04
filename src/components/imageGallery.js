@@ -24,16 +24,20 @@ function ImageGallery() {
   }
 
   function setPageData() {
-    setPage(page + 1)
+    setInterval(() => {
+      setPage(page + 1)
+    }, 1000)
   }
+
   //component within component- to render image and font awesoem icon
   function ShowImages() {
     return (
       <InfiniteScroll
         dataLength={imageData.length}
-        next={setPageData}
+        scrollThreshold={`1100px`}
+        
         hasMore={true}
-        scrollThreshold={`1000px`}
+        use
       >
         {console.log(`page value in infinye csroll ${page}`)}
         {imageData.map((img, index) => (
