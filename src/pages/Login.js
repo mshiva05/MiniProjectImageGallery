@@ -1,11 +1,9 @@
 import React, { useState } from 'react'
 import firebase from '../firebase/firebaseconfig'
 import { getAuth, signInWithEmailAndPassword } from 'firebase/auth'
-import { BrowserRouter as Router, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 export default function Login(props) {
-  console.log('inside login page')
-
   const [error, seterror] = useState('')
   const [forminput, setforminput] = useState({ email: '', password: '' })
   const [isLoggedIn, setisLoggedIn] = useState(false)
@@ -23,7 +21,6 @@ export default function Login(props) {
         setisLoggedIn(true)
         navigate('/gallery/loggedin')
         props.customProp(true)
-        console.log(props.customProp)
       })
       .catch((error) => {
         seterror(error.message)

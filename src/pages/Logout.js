@@ -1,16 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { getAuth, signOut } from 'firebase/auth'
 
 export default function Logout() {
+  const [isLoggedin, setisLoggedin] = useState(true)
   const auth = getAuth()
   signOut(auth)
     .then(() => {
-      // Sign-out successful.
+      setisLoggedin(false)
     })
     .catch((error) => {
-      // An error happened.
+      setisLoggedin(true)
     })
-  // { width: '100vw', marginRight: 'auto', marginLeft: 'auto' }
+
   return (
     <div style={{ textAlign: 'center' }}>
       <h1 style={{ fontWeight: '900', color: 'red' }}> Logout successful </h1>

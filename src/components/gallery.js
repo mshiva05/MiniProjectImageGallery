@@ -16,7 +16,6 @@ function Gallery(props) {
           <Link to="/home" className="mx-5">
             home
           </Link>
-          {console.log(`at link logged value${isLoggedIn}`)}
           {isLoggedIn ? (
             <Link to="/gallery/loggedin" className="mx-5">
               gallery
@@ -40,7 +39,10 @@ function Gallery(props) {
       <Routes>
         <Route path={'/home'} element={<Home></Home>}></Route>
         <Route path={'/gallery/loggedin'} element={<Galary></Galary>}></Route>
-        <Route path={'/logout'} element={<Logout></Logout>}></Route>
+        <Route
+          path={'/logout'}
+          element={<Logout customProp={handleData}></Logout>}
+        ></Route>
         <Route
           path={'/login'}
           element={<Login customProp={handleData}></Login>}
@@ -58,7 +60,6 @@ function Gallery(props) {
   )
 
   function handleData(value) {
-    console.log('inside gallery')
     setisLoggedIn(value)
   }
 }

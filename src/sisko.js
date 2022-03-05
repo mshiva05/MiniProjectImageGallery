@@ -65,7 +65,6 @@ function Sisko(props) {
 
   return (
     <section className="flex  justify-center">
-      {console.log('Sisko is rendered')}
       <div className="w-1/2">
         <div className="text-center">
           <h1

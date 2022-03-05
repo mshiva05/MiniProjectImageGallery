@@ -1,8 +1,6 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 export default function Image({ image, index, handleRemove }) {
-  const [inhover, setHover] = useState(false)
-
   return (
     <div className="p-2 border my-4 flex justify-center " key={index}>
       <div className="relative">
@@ -15,6 +13,7 @@ export default function Image({ image, index, handleRemove }) {
         <img
           src={image}
           key={index}
+          alt=""
           style={{ width: '100%', height: 'auto' }}
         ></img>
       </div>

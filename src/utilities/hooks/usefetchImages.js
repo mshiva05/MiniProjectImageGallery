@@ -11,29 +11,22 @@ export default function useFetchImages(page, searchString) {
   const [isLoading, setisLoading] = useState(false)
 
   useEffect(() => {
-    console.log(`page in fetch comp: ${page}`)
-    console.log(`searchString in fetch comp: ${searchString}`)
-
     setisLoading(true)
     axios
       .get(
         `${api}${url}/?client_id=${secret}&page=${page}&query=${searchString}`,
       )
-
-      // `https://api.unsplash.com/photos/?client_id=cjj0CbBqSnsxwEbiSXKarFSLKUo3jnCNhcAa4JsalN8&page=${page}`,
-      //
-
-      .then((output) => {
+      .then((response) => {
         if (searchString) {
           if (page > 1) {
-            setImageData([...imageData, ...output.data.results])
+            setImageData([...imageData, ...response.data.results])
             setisLoading(false)
           } else {
-            setImageData([...output.data.results])
+            setImageData([...response.data.results])
             setisLoading(false)
           }
         } else {
-          setImageData([...imageData, ...output.data])
+          setImageData([...imageData, ...response.data])
           setisLoading(false)
         }
       })

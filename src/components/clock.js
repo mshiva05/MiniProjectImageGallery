@@ -5,7 +5,7 @@ export default class Clock extends Component {
     super(props)
     this.state = { date: new Date(), title: 'Show time using React component ' }
   }
-  
+
   componentDidMount() {
     this.timer = setInterval(() => {
       this.tick()
@@ -31,6 +31,7 @@ export default class Clock extends Component {
             marginRight: 'auto',
           }}
           src="https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/Horlo%C4%9Do_001.svg/300px-Horlo%C4%9Do_001.svg.png"
+          alt=""
         ></img>
         <h2> current time is {this.state.date.toLocaleTimeString()}</h2>
       </div>

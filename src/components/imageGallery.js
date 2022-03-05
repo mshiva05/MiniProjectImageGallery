@@ -15,7 +15,7 @@ function ImageGallery() {
 
   // to remove selected image from array using filter method
   function handleRemove(index) {
-    setImageData(imageData.filter((image, i) => i != index))
+    setImageData(imageData.filter((image, i) => i !== index))
   }
 
   function scrollToEnd() {
@@ -48,12 +48,12 @@ function ImageGallery() {
     ))
   }
   //after clicking button, destructure array and add new url
-  function handleAdd() {
-    if (newImageURL != '') {
-      setImageData([newImageURL, ...imageData])
-      setnewImageURL('')
-    }
-  }
+  // function handleAdd() {
+  //   if (newImageURL != '') {
+  //     setImageData([newImageURL, ...imageData])
+  //     setnewImageURL('')
+  //   }
+  // }
   //trigger after url is added in input and get url to state
   function handleChange(event) {
     setnewImageURL(event.target.value)
@@ -112,12 +112,12 @@ function ImageGallery() {
               onChange={handleChange}
               className="p-2 border border-gray-800 shadow rounded w-full"
             ></input>
-            <button
+            {/* <button
               className="p-2 bg-green-600 text-white "
               onClick={handleAdd}
             >
               add new{' '}
-            </button>
+            </button> */}
           </div>
         </section>
       )}

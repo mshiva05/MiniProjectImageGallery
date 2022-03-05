@@ -1,15 +1,17 @@
 import React from 'react'
-import clock from '../components/clock'
 
 export default function home() {
   return (
-    <div>
+    <div
+      style={{
+        fontWeight: '900',
+      }}
+    >
       <h1
         style={{
-          display: 'flex',
-          justifyContent: 'center',
-          fontWeight: '900',
-          margin: 'auto',
+          width: '400px',
+          marginLeft: 'auto',
+          marginRight: 'auto',
         }}
       >
         Welcome to the home page
