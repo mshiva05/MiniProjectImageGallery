@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 const api = process.env.REACT_APP_UNSPLASH_API
 const secret = process.env.REACT_APP_UNSPLASH_KEY
@@ -23,12 +23,17 @@ export default function useFetchImages(page, searchString) {
       // `https://api.unsplash.com/photos/?client_id=cjj0CbBqSnsxwEbiSXKarFSLKUo3jnCNhcAa4JsalN8&page=${page}`,
       //
 
-      .then((res) => {
+      .then((output) => {
         if (searchString) {
-          setImageData([...res.data.results])
-          setisLoading(false)
+          if (page > 1) {
+            setImageData([...imageData, ...output.data.results])
+            setisLoading(false)
+          } else {
+            setImageData([...output.data.results])
+            setisLoading(false)
+          }
         } else {
-          setImageData([...imageData, ...res.data])
+          setImageData([...imageData, ...output.data])
           setisLoading(false)
         }
       })

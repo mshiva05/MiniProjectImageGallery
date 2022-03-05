@@ -1,12 +1,7 @@
-import React, { useRef, useState, useEffect } from 'react'
+import React, { useRef, useState } from 'react'
 import Image from './image'
-import axios, * as others from 'axios'
 import useScroll from '../utilities/hooks/useScroll'
 import useFetchImages from '../utilities/hooks/usefetchImages'
-import InfiniteScroll from 'react-infinite-scroll-component'
-
-const url = process.env.REACT_APP_UNSPLASH_URL
-const secret = process.env.REACT_APP_UNSPLASH_KEY
 
 function ImageGallery() {
   const [page, setPage] = useState(1)
@@ -23,6 +18,19 @@ function ImageGallery() {
     setImageData(imageData.filter((image, i) => i != index))
   }
 
+  function scrollToEnd() {
+    setPage(page + 1)
+  }
+
+  window.onscroll = function () {
+    if (
+      window.innerHeight + document.documentElement.scrollTop ===
+      document.documentElement.offsetHeight
+    ) {
+      scrollToEnd()
+    }
+  }
+
   function setPageData() {
     setInterval(() => {
       setPage(page + 1)
@@ -31,24 +39,13 @@ function ImageGallery() {
 
   //component within component- to render image and font awesoem icon
   function ShowImages() {
-    return (
-      <InfiniteScroll
-        dataLength={imageData.length}
-        scrollThreshold={`1100px`}
-        
-        hasMore={true}
-        use
-      >
-        {console.log(`page value in infinye csroll ${page}`)}
-        {imageData.map((img, index) => (
-          <Image
-            image={img.urls.regular}
-            index={index}
-            handleRemove={handleRemove}
-          />
-        ))}
-      </InfiniteScroll>
-    )
+    return imageData.map((img, index) => (
+      <Image
+        image={img.urls.regular}
+        index={index}
+        handleRemove={handleRemove}
+      />
+    ))
   }
   //after clicking button, destructure array and add new url
   function handleAdd() {
