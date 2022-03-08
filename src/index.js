@@ -10,7 +10,4 @@ import Gallery from './components/gallery'
 // import Booklist from './booklist'
 import './index.css'
 
-ReactDOM.render(
-  <Gallery title="hello sisko" color="red" />,
-  document.getElementById('root'),
-)
+ReactDOM.render(<Gallery />, document.getElementById('root'))

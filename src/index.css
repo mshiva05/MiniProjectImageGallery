@@ -4,3 +4,10 @@
   padding: 1rem;
   text-align: center;
 }
+
+.background {
+  background-image: url('https://images.pexels.com/photos/301664/pexels-photo-301664.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');
+  background-color: #cccccc;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

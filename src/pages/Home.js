@@ -9,9 +9,9 @@ export default function home() {
     >
       <h1
         style={{
-          width: '400px',
-          marginLeft: 'auto',
-          marginRight: 'auto',
+          width: '100vw',
+          height: '0.1px',
+          textAlign: 'center',
         }}
       >
         Welcome to the home page
